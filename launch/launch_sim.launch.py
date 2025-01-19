@@ -29,6 +29,12 @@ def generate_launch_description():
     pkg_example_simulation = get_package_share_directory('vacumoon_simulation')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
+    # Path to the empty.world file
+    world_file_path = os.path.join(pkg_example_simulation, 'worlds', 'obstacles1.world')
+    if not os.path.exists(world_file_path):
+        raise FileNotFoundError(f"World file not found: {world_file_path}")
+
+
     # Xacro processing
     xacro_file = os.path.join(pkg_example_simulation, 'description', 'robot.urdf') # TODO integrate example for xacro
     robot_description_config = xacro.process_file(xacro_file)
@@ -46,6 +52,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')
         ),
+        launch_arguments={'world': world_file_path}.items(),
     )
 
     spawn_entity = Node(

@@ -1,0 +1,7 @@
+image: obstacles1.png  # Der Name der Bilddatei
+resolution: 0.01      # Auflösung in Meter/Pixel (z. B. 5 cm/Pixel)
+origin: [0, 0, 0.0]  # Ursprung der Karte [x, y, yaw]
+occupied_thresh: 0.5  # Schwellenwert für Hindernisse (zwischen 0 und 1)
+free_thresh: 0.4     # Schwellenwert für freie Bereiche (zwischen 0 und 1)
+negate: 0             # 0 = Normal, 1 = Negierte Farben (invertiertes Bild)
+

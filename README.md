@@ -44,3 +44,24 @@ ros2 topic pub --once /joint_trajectory_controller/joint_trajectory trajectory_m
 }"
 
 ```
+
+##### Change the world
+To load a different world from the worlds folder change the it in the launch file.
+
+##### Commanding a goal pose
+- Install the map server to load a png as a map: ```sudo apt install ros-humble-nav2-map-server```
+- Open ```rviz2```
+- File -> Open Config -> vacumoon_simulation/config/map.rviz2
+Check the *map.yaml* to configure which png will be loaded as a map
+```
+ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=worlds/map.yaml
+```
+```
+ros2 lifecycle set /map_server configure
+ros2 lifecycle set /map_server activate
+```
+The map is now shown in rviz:
+
+![readme_files/map.png](readme_files/map.png)
+
+- By clicking on **2D goal pose** in the rviz toolbar, you can command a goal pose for your robot to the */goal_pose* topic. The goal pose will be visualized by an arrow on the map.
