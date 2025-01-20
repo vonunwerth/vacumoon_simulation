@@ -30,7 +30,7 @@ def generate_launch_description():
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     # Path to the empty.world file
-    world_file_path = os.path.join(pkg_example_simulation, 'worlds', 'obstacles1.world')
+    world_file_path = os.path.join(pkg_example_simulation, 'worlds', 'obstacles2.world')
     if not os.path.exists(world_file_path):
         raise FileNotFoundError(f"World file not found: {world_file_path}")
 
