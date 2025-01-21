@@ -46,7 +46,7 @@ ros2 topic pub --once /joint_trajectory_controller/joint_trajectory trajectory_m
 ```
 
 ##### Change the world
-To load a different world from the worlds folder change the it in the launch file.
+To load a different world from the worlds folder change the it in the launch file. 
 
 ##### Commanding a goal pose
 - Install the map server to load a png as a map: ```sudo apt install ros-humble-nav2-map-server```
